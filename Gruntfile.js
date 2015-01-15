@@ -22,8 +22,8 @@ module.exports = function (grunt) {
                     'bower_components/foundation/js/foundation/foundation.equalizer.js',
                     'bower_components/foundation/js/foundation/foundation.reveal.js',
                     'bower_components/handlebars/handlebars.min.js',
-                    'bower_components/ember/ember.min.js',
-                    'bower_components/ember-data/ember-data.min.js',
+                    'bower_components/ember/ember.js',
+                    'bower_components/ember-data/ember-data.js',
                     'src/js/jitter.js',
                     'src/js/**/*.js'
                 ],

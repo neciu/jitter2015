@@ -36,7 +36,7 @@ window.Jitter = Ember.Application.create({
 
     refresh: function () {
         Jitter.request('/api/workshops/signups', 'GET')
-            .then(function(response){
+            .then(function (response) {
                 Jitter.parseRefreshResponse(response);
             })
             .always(function () {
@@ -51,13 +51,22 @@ Jitter.Router.map(function () {
     this.route('authenticate', {path: ':authenticationToken'});
 });
 
+Jitter.Speaker = DS.Model.extend({
+    name: DS.attr('string'),
+    picture_url: DS.attr('string'),
+    role: DS.attr('string'),
+    bio: DS.attr('string'),
+    twitter: DS.attr('string')
+});
+
 Jitter.Workshop = DS.Model.extend({
     name: DS.attr('string'),
     description: DS.attr('string'),
     session_0_attending: DS.attr('boolean', {defaultValue: false}),
     session_0_free_spots: DS.attr('number', {defaultValue: 0}),
     session_1_attending: DS.attr('boolean', {defaultValue: false}),
-    session_1_free_spots: DS.attr('number', {defaultValue: 0})
+    session_1_free_spots: DS.attr('number', {defaultValue: 0}),
+    speakers: DS.hasMany('speaker')
 });
 
 Jitter.IndexRoute = Ember.Route.extend({
@@ -71,7 +80,15 @@ Jitter.IndexRoute = Ember.Route.extend({
         Jitter.request('/api/workshops/list', 'GET')
             .then(function (response) {
                 var workshops = response.map(function (workshop) {
-                    return store.createRecord('workshop', workshop);
+                    var w = store.createRecord('workshop', {
+                        id: workshop.id,
+                        name : workshop.name,
+                        description : workshop.description
+                    });
+                    workshop.speakers.map(function (speaker) {
+                        w.get('speakers').pushObject(store.createRecord('speaker', speaker));
+                    });
+                    return w;
                 });
                 route.controllerFor('workshops').set('model', workshops);
                 Jitter.refresh();
@@ -91,6 +108,7 @@ Jitter.IndexController = Ember.Controller.extend({
 
 Jitter.IndexView = Ember.View.extend({
     didInsertElement: function () {
+        FastClick.attach(document.body);
         $(document).foundation();
     }
 });
@@ -111,6 +129,12 @@ Jitter.WorkshopController = Ember.ObjectController.extend({
     signUpForbidden1: function () {
         return this.get('session_0_attending') || (this.get('session_1_free_spots') <= 0 && !this.get('session_1_attending'));
     }.property('session_1_free_spots', 'session_0_attending', 'session_1_attending'),
+
+    speakerList: function() {
+        return this.get('speakers').map(function(speaker){
+            return speaker.get('name');
+        }).join(' & ');
+    }.property(),
 
     actions: {
         showInfo: function () {
