@@ -7,3 +7,5 @@
 ### BUILD (inside container): `grunt`
 
 App will be build and put in `out` directory.
+
+### BUILD DISTRIBUTION: `grunt distribution`
