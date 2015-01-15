@@ -63,6 +63,11 @@ Jitter.IndexRoute = Ember.Route.extend({
                 });
                 route.controllerFor('workshops').set('model', workshops);
                 Jitter.refresh();
+            })
+            .fail(function(error){
+               if (error.status === 401) {
+                   alert('You are not authenticated. Please enter website address sent to you via email first.');
+               }
             });
         controller.set('model', model);
     }
@@ -138,6 +143,7 @@ Jitter.AuthenticateRoute = Ember.Route.extend({
                 console.log(error);
                 localStorage.removeItem('token');
                 Jitter.token = null;
+                $('#modal').foundation('reveal', 'open');
             });
     }
 });
