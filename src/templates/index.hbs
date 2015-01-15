@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="small-12 medium-offset-2 medium-8 columns text-center">
+        Book one workshop in each session
+    </div>
+    <div class="small-6 medium-1 columns">
+        SESSION 1<br>
+        10:00 - 14:00<br>
+    </div>
+    <div class="small-6 medium-1 columns">
+        SESSION 2<br>
+        15:30 - 19:30<br>
+    </div>
+</div>
+
+<section id="jitter">
+    {{#each controllers.workshops}}
+        <div class="row-wrapper" {{bind-attr class='isAttending:attending'}}>
+            <div class="row">
+                <div class="small-12 medium-10 columns" {{action 'showInfo'}}>
+                    <h6>Speakers</h6>
+                    <h6>{{name}}</h6>
+                </div>
+                <div class="small-6 medium-1 columns">
+                    <button class="tiny" {{action 'toggleSignUp' 0}} {{bind-attr disabled='signUpForbidden0'}} {{bind-attr class='session_0_attending:success'}}>
+                    </button>
+                    {{session_0_free_spots}}
+                </div>
+                <div class="small-6 medium-1 columns">
+                    <button class="tiny" {{action 'toggleSignUp' 1}} {{bind-attr disabled='signUpForbidden1'}} {{bind-attr class='session_1_attending:success'}}>
+                    </button>
+                    {{session_1_free_spots}}
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</section>
+
+<div id="modal" class="reveal-modal" data-reveal>
+    <h1>{{model.selectedWorkshop.name}}</h1>
+
+    <h2>{{model.selectedWorkshop.leader}}</h2>
+
+    <p>{{model.selectedWorkshop.description}}</p>
+
+    <a class="close-reveal-modal">&#215;</a>
+</div>
+

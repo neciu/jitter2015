@@ -1,0 +1,33 @@
+@import "normalize";
+@import "foundation";
+
+section#jitter {
+  .row-wrapper {
+    border: 0 solid black;
+    border-top-width: 1px;
+    &:last-child {
+      border-bottom-width: 1px;
+    }
+    &.attending {
+      background-color: #f5f6d1;
+    }
+    transition: background-color 300ms ease-out;
+    padding: 1rem 0 0.5rem 0;
+  }
+
+  button {
+    border: 1px solid black;
+    border-radius: 1000px;
+    height: 2rem;
+    width: 2rem;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    &[disabled] {
+      border-color: #cccccc;
+    }
+    &.success {
+      background-color: #a1e213;
+    }
+  }
+}
