@@ -1,6 +1,9 @@
-var host = 'https://registration.mobilecentraleurope.com';
+"use strict";
 
-Jitter = Ember.Application.create({
+const HOST = 'https://registration.mobilecentraleurope.com';
+const REFRESH_TIMEOUT = 2000;
+
+window.Jitter = Ember.Application.create({
     LOG_TRANSITIONS: true,
     LOG_TRANSITIONS_INTERNAL: true,
     LOG_VIEW_LOOKUPS: true,
@@ -11,7 +14,7 @@ Jitter = Ember.Application.create({
             headers.Token = Jitter.token;
         }
         return Ember.$.ajax({
-            url: host + url,
+            url: HOST + url,
             type: type,
             data: JSON.stringify(data),
             dataType: 'json',
@@ -19,18 +22,27 @@ Jitter = Ember.Application.create({
         });
     },
 
+    parseRefreshResponse: function (response) {
+        response.map(function (workshopInfo) {
+            var workshop = Jitter.Workshop.store.findById('workshop', workshopInfo.workshop_id)
+                .then(function (workshop) {
+                    workshopInfo.sessions.map(function (session) {
+                        workshop.set('session_' + session.number + '_attending', session.attending);
+                        workshop.set('session_' + session.number + '_free_spots', session.free_spots);
+                    });
+                });
+        });
+    },
+
     refresh: function () {
         Jitter.request('/api/workshops/signups', 'GET')
-            .then(function (response) {
-                response.map(function (workshopInfo) {
-                    var workshop = Jitter.Workshop.store.findById('workshop', workshopInfo.workshop_id)
-                        .then(function (workshop) {
-                            workshopInfo.sessions.map(function (session) {
-                                workshop.set('session_' + session.number + '_attending', session.attending);
-                                workshop.set('session_' + session.number + '_free_spots', session.free_spots);
-                            });
-                        });
-                });
+            .then(function(response){
+                Jitter.parseRefreshResponse(response);
+            })
+            .always(function () {
+                Ember.run.later(function () {
+                    Jitter.refresh();
+                }, REFRESH_TIMEOUT);
             });
     }
 });
@@ -64,10 +76,10 @@ Jitter.IndexRoute = Ember.Route.extend({
                 route.controllerFor('workshops').set('model', workshops);
                 Jitter.refresh();
             })
-            .fail(function(error){
-               if (error.status === 401) {
-                   alert('You are not authenticated. Please enter website address sent to you via email first.');
-               }
+            .fail(function (error) {
+                if (error.status === 401) {
+                    alert('You are not authenticated. Please enter website address sent to you via email first.');
+                }
             });
         controller.set('model', model);
     }
@@ -115,15 +127,7 @@ Jitter.WorkshopController = Ember.ObjectController.extend({
 
             Jitter.request('/api/workshops/signups', 'POST', data)
                 .then(function (response) {
-                    response.map(function (workshopInfo) {
-                        var workshop = Jitter.Workshop.store.findById('workshop', workshopInfo.workshop_id)
-                            .then(function (workshop) {
-                                workshopInfo.sessions.map(function (session) {
-                                    workshop.set('session_' + session.number + '_attending', session.attending);
-                                    workshop.set('session_' + session.number + '_free_spots', session.free_spots);
-                                });
-                            });
-                    });
+                    Jitter.parseRefreshResponse(response);
                 });
         }
     }
