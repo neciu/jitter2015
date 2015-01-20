@@ -1,4 +1,5 @@
-### BUILD: `docker build -t jitter .`
+### BUILD: 
+`docker build -t jitter .`
 
 ### DOWNLOAD ALL DEPENDENCIES: 
 `docker rm jitter; docker run -it -v 'pwd':/jitter --name jitter jitter`
