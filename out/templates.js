@@ -10,13 +10,17 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
   },"hashTypes":{'class': "STRING"},"hashContexts":{'class': depth0},"types":[],"contexts":[],"data":data})));
   data.buffer.push(">\n            <div class=\"row\">\n                <a>\n                    <div class=\"small-12 medium-10 columns\" ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "showInfo", {"name":"action","hash":{},"hashTypes":{},"hashContexts":{},"types":["STRING"],"contexts":[depth0],"data":data})));
-  data.buffer.push(">\n                        <h6>");
+  data.buffer.push(">\n                        <div class=\"small-3 medium-2 columns\">\n                            <img ");
+  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
+    'src': ("workshop.image_url")
+  },"hashTypes":{'src': "ID"},"hashContexts":{'src': depth0},"types":[],"contexts":[],"data":data})));
+  data.buffer.push(">\n                        </div>\n                        <div class=\"small-9 medium-10 columns\">\n                            <h6>");
   stack1 = helpers._triageMustache.call(depth0, "workshop.speakerList", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
-  data.buffer.push("</h6>\n                        <h6>");
+  data.buffer.push("</h6>\n                            <h6>");
   stack1 = helpers._triageMustache.call(depth0, "workshop.name", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
-  data.buffer.push("</h6>\n                    </div>\n                </a>\n                <div class=\"small-6 medium-1 columns\">\n                    <button class=\"tiny\" ");
+  data.buffer.push("</h6>\n                        </div>\n                    </div>\n                </a>\n                <div class=\"small-6 medium-1 columns\">\n                    <button class=\"tiny\" ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "toggleSignUp", 0, {"name":"action","hash":{},"hashTypes":{},"hashContexts":{},"types":["STRING","NUMBER"],"contexts":[depth0,depth0],"data":data})));
   data.buffer.push(" ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
