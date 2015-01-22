@@ -85,7 +85,8 @@ Jitter.IndexRoute = Ember.Route.extend({
                         id: workshop.id,
                         name : workshop.name,
                         description : workshop.description,
-                        image_url: workshop.image_url
+                        image_url: workshop.image_url,
+                        tags: workshop.tags
                     });
                     workshop.speakers.map(function (speaker) {
                         w.get('speakers').pushObject(store.createRecord('speaker', speaker));

@@ -1,6 +1,26 @@
 @import "normalize";
 @import "foundation";
 
+.row {
+  max-width: 70rem;
+}
+
+section#header {
+  .booking-info, .session-times {
+    font-family: 'Lato';
+    padding: 3rem 0 1rem;
+  }
+
+  .booking-info {
+    font-size: 1.6rem;
+  }
+
+  .session-times {
+    font-weight: bold;
+    font-size: 0.7rem;
+  }
+}
+
 section#jitter {
   .row-wrapper {
     border: 0 solid black;
@@ -28,6 +48,29 @@ section#jitter {
     }
     &.success {
       background-color: #a1e213;
+    }
+  }
+
+  h6 {
+    font-family: "Lato";
+
+    &.workshop-speaker {
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    &.workshop-name {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    &.workshop-tags {
+      display: inline;
+      margin-right: 2px;
+      background: #d6ee1a;
+      padding: 0.1rem 0.5rem;
+      text-transform: uppercase;
     }
   }
 }

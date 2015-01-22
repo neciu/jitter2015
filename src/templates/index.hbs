@@ -1,16 +1,18 @@
-<div class="row">
-    <div class="small-12 medium-offset-2 medium-8 columns text-center">
-        Book one workshop in each session
+<section id="header">
+    <div class="row">
+        <div class="small-12 medium-offset-2 medium-8 columns text-center booking-info">
+            Book one workshop in each session
+        </div>
+        <div class="small-6 medium-1 columns session-times">
+            SESSION 1<br>
+            10:00 - 14:00<br>
+        </div>
+        <div class="small-6 medium-1 columns session-times">
+            SESSION 2<br>
+            15:30 - 19:30<br>
+        </div>
     </div>
-    <div class="small-6 medium-1 columns">
-        SESSION 1<br>
-        10:00 - 14:00<br>
-    </div>
-    <div class="small-6 medium-1 columns">
-        SESSION 2<br>
-        15:30 - 19:30<br>
-    </div>
-</div>
+</section>
 
 <section id="jitter">
     {{#each workshop in controllers.workshops}}
@@ -22,8 +24,9 @@
                             <img {{bind-attr src=workshop.image_url}}>
                         </div>
                         <div class="small-9 medium-10 columns">
-                            <h6>{{workshop.speakerList}}</h6>
-                            <h6>{{workshop.name}}</h6>
+                            <h6 class="workshop-speaker">{{workshop.speakerList}}</h6>
+                            <h6 class="workshop-name">{{workshop.name}}</h6>
+                            <h6 class="workshop-tags">{{workshop.tags}}</h6>
                         </div>
                     </div>
                 </a>
