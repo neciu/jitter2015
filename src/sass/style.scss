@@ -15,7 +15,7 @@ $modal-speaker-h3-size: 1.1rem;
 // *******************
 
 .tags {
-  display: inline;
+//  display: inline;
   margin-right: 2px;
   background: #d6ee1a;
   padding: 0.1rem 0.5rem;
@@ -65,8 +65,15 @@ section#jitter {
       font-weight: 400;
     }
 
-    &.workshop-tags {
+    &[class^='workshop-tags-'] {
       @extend .tags;
+    }
+
+    .workshop-tags-small {
+      display: none;
+    }
+    .workshop-tags-mediumup {
+      display:inline;
     }
   }
 
@@ -138,6 +145,7 @@ div#modal {
 
   .workshop-modal-tags {
     @extend .tags;
+    display: inline;
   }
 }
 
@@ -147,14 +155,37 @@ div#modal {
 
 @media  #{$small-only} {
   section#header {
+    .booking-info {
+      font-size: 1.1rem;
+    }
     .session-times {
       display: none;
     }
   }
 
   section#jitter {
+
+    .row-wrapper {
+      .columns:first-child {
+        padding-right: 0;
+
+        .columns:first-child {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+
     .session-times {
       display: inline-block;
+    }
+    .workshop-tags-small {
+      display: block;
+      font-size: 0.6rem;
+      text-align: center;
+    }
+    .workshop-tags-mediumup {
+      display:none;
     }
   }
 }

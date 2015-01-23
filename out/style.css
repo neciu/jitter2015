@@ -6347,6 +6347,37 @@ th.hide-for-touch {
     display: table-cell !important; }
  }
 
+.tags, section#jitter h6[class^='workshop-tags-'], div#modal .workshop-modal-tags {
+  margin-right: 2px;
+  background: #d6ee1a;
+  padding: 0.1rem 0.5rem;
+  text-transform: uppercase; }
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: "Lato"; }
+
+.row {
+  max-width: 70rem; }
+
+section#header .booking-info, section#header .session-times {
+  padding: 3rem 0 1rem; }
+section#header .booking-info {
+  font-size: 1.6rem; }
+section#header .session-times {
+  font-weight: bold;
+  font-size: 0.7rem; }
+
+section#jitter h6.workshop-speaker {
+  font-size: 1.2rem;
+  font-weight: 300; }
+section#jitter h6.workshop-name {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 400; }
+section#jitter h6 .workshop-tags-small {
+  display: none; }
+section#jitter h6 .workshop-tags-mediumup {
+  display: inline; }
 section#jitter .row-wrapper {
   border: 0 solid black;
   border-top-width: 1px;
@@ -6368,3 +6399,41 @@ section#jitter button {
     border-color: #cccccc; }
   section#jitter button.success {
     background-color: #a1e213; }
+section#jitter .session-times {
+  display: none; }
+
+div#modal p {
+  font-size: 1.1rem;
+  font-weight: 300; }
+div#modal .row:first-child {
+  margin-bottom: 2rem; }
+div#modal .row:nth-child(2) h1 {
+  font-size: 1.35rem;
+  margin-top: 1rem; }
+div#modal .row:nth-child(2) h3 {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-bottom: 1.2rem; }
+div#modal .workshop-modal-tags {
+  display: inline; }
+
+@media only screen and (max-width: 40em) {
+  section#header .booking-info {
+    font-size: 1.1rem; }
+  section#header .session-times {
+    display: none; }
+
+  section#jitter .row-wrapper .columns:first-child {
+    padding-right: 0; }
+    section#jitter .row-wrapper .columns:first-child .columns:first-child {
+      padding-left: 0;
+      padding-right: 0; }
+  section#jitter .session-times {
+    display: inline-block; }
+  section#jitter .workshop-tags-small {
+    display: block;
+    font-size: 0.6rem;
+    text-align: center; }
+  section#jitter .workshop-tags-mediumup {
+    display: none; }
+ }

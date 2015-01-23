@@ -22,12 +22,15 @@
                     <div class="small-12 medium-10 columns" {{action 'showInfo'}}>
                         <div class="small-3 medium-2 columns">
                             <img {{bind-attr src=workshop.image_url}}>
+                            {{#each tag in workshop.tags}}
+                                <h6 class="workshop-tags-small">{{tag}}</h6>
+                            {{/each}}
                         </div>
                         <div class="small-9 medium-10 columns">
                             <h6 class="workshop-speaker">{{workshop.speakerList}}</h6>
                             <h6 class="workshop-name">{{workshop.name}}</h6>
                             {{#each tag in workshop.tags}}
-                                <h6 class="workshop-tags">{{tag}}</h6>
+                                <h6 class="workshop-tags-mediumup">{{tag}}</h6>
                             {{/each}}
                         </div>
                     </div>

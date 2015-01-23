@@ -64048,6 +64048,7 @@ Jitter.Workshop = DS.Model.extend({
     name: DS.attr('string'),
     description: DS.attr('string'),
     image_url: DS.attr('string'),
+    tags: DS.attr('string'),
     session_0_attending: DS.attr('boolean', {defaultValue: false}),
     session_0_free_spots: DS.attr('number', {defaultValue: 0}),
     session_1_attending: DS.attr('boolean', {defaultValue: false}),
@@ -64070,7 +64071,8 @@ Jitter.IndexRoute = Ember.Route.extend({
                         id: workshop.id,
                         name : workshop.name,
                         description : workshop.description,
-                        image_url: workshop.image_url
+                        image_url: workshop.image_url,
+                        tags: workshop.tags
                     });
                     workshop.speakers.map(function (speaker) {
                         w.get('speakers').pushObject(store.createRecord('speaker', speaker));
