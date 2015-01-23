@@ -6374,9 +6374,9 @@ section#jitter h6.workshop-name {
   font-size: 1.4rem;
   text-transform: uppercase;
   font-weight: 400; }
-section#jitter h6 .workshop-tags-small {
+section#jitter h6.workshop-tags-small {
   display: none; }
-section#jitter h6 .workshop-tags-mediumup {
+section#jitter h6.workshop-tags-mediumup {
   display: inline; }
 section#jitter .row-wrapper {
   border: 0 solid black;

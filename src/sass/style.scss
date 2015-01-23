@@ -69,10 +69,10 @@ section#jitter {
       @extend .tags;
     }
 
-    .workshop-tags-small {
+    &.workshop-tags-small {
       display: none;
     }
-    .workshop-tags-mediumup {
+    &.workshop-tags-mediumup {
       display:inline;
     }
   }
@@ -138,9 +138,6 @@ div#modal {
       margin-bottom: 1.2rem;
     }
 
-//    .columns:last-child {
-//      float: left;
-//    }
   }
 
   .workshop-modal-tags {
