@@ -6401,6 +6401,9 @@ section#jitter button {
     background-color: #a1e213; }
 section#jitter .session-times {
   display: none; }
+section#jitter span.workshop-spots {
+  vertical-align: super;
+  display: inline; }
 
 div#modal p {
   font-size: 1.1rem;

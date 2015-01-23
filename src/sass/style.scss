@@ -110,6 +110,11 @@ section#jitter {
   .session-times {
     display: none;
   }
+
+  span.workshop-spots {
+    vertical-align: super;
+    display: inline;
+  }
 }
 
 div#modal {
