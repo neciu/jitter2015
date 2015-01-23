@@ -63,6 +63,7 @@ Jitter.Workshop = DS.Model.extend({
     name: DS.attr('string'),
     description: DS.attr('string'),
     image_url: DS.attr('string'),
+    tags: DS.attr('string'),
     session_0_attending: DS.attr('boolean', {defaultValue: false}),
     session_0_free_spots: DS.attr('number', {defaultValue: 0}),
     session_1_attending: DS.attr('boolean', {defaultValue: false}),

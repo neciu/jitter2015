@@ -26,16 +26,26 @@
                         <div class="small-9 medium-10 columns">
                             <h6 class="workshop-speaker">{{workshop.speakerList}}</h6>
                             <h6 class="workshop-name">{{workshop.name}}</h6>
-                            <h6 class="workshop-tags">{{workshop.tags}}</h6>
+                            {{#each tag in workshop.tags}}
+                                <h6 class="workshop-tags">{{tag}}</h6>
+                            {{/each}}
                         </div>
                     </div>
                 </a>
                 <div class="small-6 medium-1 columns">
+                    <div class="session-times">
+                        SESSION 1<br>
+                        10:00 - 14:00<br>
+                    </div>
                     <button class="tiny" {{action 'toggleSignUp' 0}} {{bind-attr disabled='workshop.signUpForbidden0'}} {{bind-attr class='workshop.session_0_attending:success'}}>
                     </button>
                     {{workshop.session_0_free_spots}}
                 </div>
                 <div class="small-6 medium-1 columns">
+                    <div class="session-times">
+                        SESSION 1<br>
+                        10:00 - 14:00<br>
+                    </div>
                     <button class="tiny" {{action 'toggleSignUp' 1}} {{bind-attr disabled='workshop.signUpForbidden1'}} {{bind-attr class='workshop.session_1_attending:success'}}>
                     </button>
                     {{workshop.session_1_free_spots}}
@@ -45,18 +55,24 @@
     {{/each}}
 </section>
 
-<div id="modal" class="reveal-modal" data-reveal>
+<div id="modal" class="reveal-modal workshop-modal" data-reveal>
     <div class="row">
-        <div class="small-12 columns">
+        <div class="medium-2 columns workshop-modal-logo">
+            {{model.selectedWorkshop.image_url}}
+        </div>
+        <div class="small-12 medium-10 columns">
             <h1>{{model.selectedWorkshop.name}}</h1>
 
             <p>{{model.selectedWorkshop.description}}</p>
+            {{# each tag in model.selectedWorkshop.tags}}
+                <h6 class="workshop-modal-tags">{{tag}}</h6>
+            {{/each}}
         </div>
     </div>
 
     <div class="row">
         {{#each speaker in model.selectedWorkshop.speakers}}
-            <div class="small-6 columns">
+            <div class="small-12 medium-6 columns">
                 <img {{bind-attr src='speaker.picture_url'}} alt=""/>
 
                 <h1>{{speaker.name}}</h1>
