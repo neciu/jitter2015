@@ -6417,6 +6417,8 @@ div#modal .row:nth-child(2) h3 {
   font-size: 1.1rem;
   font-weight: 300;
   margin-bottom: 1.2rem; }
+div#modal .row:nth-child(2) .columns:last-child {
+  float: left; }
 div#modal .workshop-modal-tags {
   display: inline; }
 
