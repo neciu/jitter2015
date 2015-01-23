@@ -6430,10 +6430,10 @@ div#modal .workshop-modal-tags {
       padding-right: 0; }
   section#jitter .session-times {
     display: inline-block; }
-  section#jitter .workshop-tags-small {
+  section#jitter h6.workshop-tags-small {
     display: block;
     font-size: 0.6rem;
     text-align: center; }
-  section#jitter .workshop-tags-mediumup {
+  section#jitter h6.workshop-tags-mediumup {
     display: none; }
  }

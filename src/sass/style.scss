@@ -176,13 +176,16 @@ div#modal {
     .session-times {
       display: inline-block;
     }
-    .workshop-tags-small {
-      display: block;
-      font-size: 0.6rem;
-      text-align: center;
-    }
-    .workshop-tags-mediumup {
-      display:none;
+
+    h6 {
+      &.workshop-tags-small {
+        display: block;
+        font-size: 0.6rem;
+        text-align: center;
+      }
+      &.workshop-tags-mediumup {
+        display: none;
+      }
     }
   }
 }
