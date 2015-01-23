@@ -163,7 +163,7 @@ div#modal {
   section#jitter {
 
     .row-wrapper {
-      .columns:first-child {
+      .workshop-meta {
         padding-right: 0;
 
         .columns:first-child {
@@ -173,8 +173,22 @@ div#modal {
       }
     }
 
-    .session-times {
-      display: inline-block;
+    .workshop-session {
+
+//      &:nth-child(even) {
+//        padding-right: 0;
+//        padding-left: 1.77rem;
+//      }
+//
+//      &:nth-child(odd) {
+//        padding-left: 0.5rem;
+//        padding-right: 0;
+//      }
+
+      .session-times {
+        display: inline-block;
+        font-size: 0.8rem;
+      }
     }
 
     h6 {
@@ -182,11 +196,23 @@ div#modal {
         display: block;
         font-size: 0.6rem;
         text-align: center;
+        margin-top: 0.5rem;
+        padding: 0.1rem 0.2rem;
       }
       &.workshop-tags-mediumup {
         display: none;
       }
     }
+
+    button {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    span.workshop-spots {
+      font-size: 0.8rem;
+    }
+
   }
 }
 

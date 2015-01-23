@@ -19,14 +19,14 @@
         <div class="row-wrapper" {{bind-attr class='workshop.isAttending:attending'}}>
             <div class="row">
                 <a>
-                    <div class="small-12 medium-10 columns" {{action 'showInfo'}}>
-                        <div class="small-3 medium-2 columns">
+                    <div class="small-12 medium-10 columns workshop-meta" {{action 'showInfo'}}>
+                        <div class="small-2 medium-2 columns">
                             <img {{bind-attr src=workshop.image_url}}>
                             {{#each tag in workshop.tags}}
                                 <h6 class="workshop-tags-small">{{tag}}</h6>
                             {{/each}}
                         </div>
-                        <div class="small-9 medium-10 columns">
+                        <div class="small-10 medium-10 columns">
                             <h6 class="workshop-speaker">{{workshop.speakerList}}</h6>
                             <h6 class="workshop-name">{{workshop.name}}</h6>
                             {{#each tag in workshop.tags}}
@@ -35,23 +35,23 @@
                         </div>
                     </div>
                 </a>
-                <div class="small-6 medium-1 columns">
+                <div class="small-6 medium-1 columns workshop-session">
                     <div class="session-times">
                         SESSION 1<br>
                         10:00 - 14:00<br>
                     </div>
                     <button class="tiny" {{action 'toggleSignUp' 0}} {{bind-attr disabled='workshop.signUpForbidden0'}} {{bind-attr class='workshop.session_0_attending:success'}}>
                     </button>
-                    {{workshop.session_0_free_spots}}
+                    <span class="workshop-spots">{{workshop.session_0_free_spots}}</span>
                 </div>
-                <div class="small-6 medium-1 columns">
+                <div class="small-6 medium-1 columns workshop-session">
                     <div class="session-times">
-                        SESSION 1<br>
-                        10:00 - 14:00<br>
+                        SESSION 2<br>
+                        15:30 - 19:30<br>
                     </div>
                     <button class="tiny" {{action 'toggleSignUp' 1}} {{bind-attr disabled='workshop.signUpForbidden1'}} {{bind-attr class='workshop.session_1_attending:success'}}>
                     </button>
-                    {{workshop.session_1_free_spots}}
+                    <span class="workshop-spots">{{workshop.session_1_free_spots}}</span>
                 </div>
             </div>
         </div>

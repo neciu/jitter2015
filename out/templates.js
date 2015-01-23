@@ -8,16 +8,16 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
     'class': ("workshop.isAttending:attending")
   },"hashTypes":{'class': "STRING"},"hashContexts":{'class': depth0},"types":[],"contexts":[],"data":data})));
-  data.buffer.push(">\n            <div class=\"row\">\n                <a>\n                    <div class=\"small-12 medium-10 columns\" ");
+  data.buffer.push(">\n            <div class=\"row\">\n                <a>\n                    <div class=\"small-12 medium-10 columns workshop-meta\" ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "showInfo", {"name":"action","hash":{},"hashTypes":{},"hashContexts":{},"types":["STRING"],"contexts":[depth0],"data":data})));
-  data.buffer.push(">\n                        <div class=\"small-3 medium-2 columns\">\n                            <img ");
+  data.buffer.push(">\n                        <div class=\"small-2 medium-2 columns\">\n                            <img ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
     'src': ("workshop.image_url")
   },"hashTypes":{'src': "ID"},"hashContexts":{'src': depth0},"types":[],"contexts":[],"data":data})));
   data.buffer.push(">\n");
   stack1 = helpers.each.call(depth0, "tag", "in", "workshop.tags", {"name":"each","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(2, data),"inverse":this.noop,"types":["ID","ID","ID"],"contexts":[depth0,depth0,depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
-  data.buffer.push("                        </div>\n                        <div class=\"small-9 medium-10 columns\">\n                            <h6 class=\"workshop-speaker\">");
+  data.buffer.push("                        </div>\n                        <div class=\"small-10 medium-10 columns\">\n                            <h6 class=\"workshop-speaker\">");
   stack1 = helpers._triageMustache.call(depth0, "workshop.speakerList", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("</h6>\n                            <h6 class=\"workshop-name\">");
@@ -26,7 +26,7 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
   data.buffer.push("</h6>\n");
   stack1 = helpers.each.call(depth0, "tag", "in", "workshop.tags", {"name":"each","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(4, data),"inverse":this.noop,"types":["ID","ID","ID"],"contexts":[depth0,depth0,depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
-  data.buffer.push("                        </div>\n                    </div>\n                </a>\n                <div class=\"small-6 medium-1 columns\">\n                    <div class=\"session-times\">\n                        SESSION 1<br>\n                        10:00 - 14:00<br>\n                    </div>\n                    <button class=\"tiny\" ");
+  data.buffer.push("                        </div>\n                    </div>\n                </a>\n                <div class=\"small-6 medium-1 columns workshop-session\">\n                    <div class=\"session-times\">\n                        SESSION 1<br>\n                        10:00 - 14:00<br>\n                    </div>\n                    <button class=\"tiny\" ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "toggleSignUp", 0, {"name":"action","hash":{},"hashTypes":{},"hashContexts":{},"types":["STRING","NUMBER"],"contexts":[depth0,depth0],"data":data})));
   data.buffer.push(" ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
@@ -36,10 +36,10 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
     'class': ("workshop.session_0_attending:success")
   },"hashTypes":{'class': "STRING"},"hashContexts":{'class': depth0},"types":[],"contexts":[],"data":data})));
-  data.buffer.push(">\n                    </button>\n                    ");
+  data.buffer.push(">\n                    </button>\n                    <span class=\"workshop-spots\">");
   stack1 = helpers._triageMustache.call(depth0, "workshop.session_0_free_spots", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
-  data.buffer.push("\n                </div>\n                <div class=\"small-6 medium-1 columns\">\n                    <div class=\"session-times\">\n                        SESSION 1<br>\n                        10:00 - 14:00<br>\n                    </div>\n                    <button class=\"tiny\" ");
+  data.buffer.push("</span>\n                </div>\n                <div class=\"small-6 medium-1 columns workshop-session\">\n                    <div class=\"session-times\">\n                        SESSION 2<br>\n                        15:30 - 19:30<br>\n                    </div>\n                    <button class=\"tiny\" ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "toggleSignUp", 1, {"name":"action","hash":{},"hashTypes":{},"hashContexts":{},"types":["STRING","NUMBER"],"contexts":[depth0,depth0],"data":data})));
   data.buffer.push(" ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
@@ -49,10 +49,10 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
     'class': ("workshop.session_1_attending:success")
   },"hashTypes":{'class': "STRING"},"hashContexts":{'class': depth0},"types":[],"contexts":[],"data":data})));
-  data.buffer.push(">\n                    </button>\n                    ");
+  data.buffer.push(">\n                    </button>\n                    <span class=\"workshop-spots\">");
   stack1 = helpers._triageMustache.call(depth0, "workshop.session_1_free_spots", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
-  data.buffer.push("\n                </div>\n            </div>\n        </div>\n");
+  data.buffer.push("</span>\n                </div>\n            </div>\n        </div>\n");
   return buffer;
 },"2":function(depth0,helpers,partials,data) {
   var stack1, buffer = '';

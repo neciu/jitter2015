@@ -6423,17 +6423,25 @@ div#modal .workshop-modal-tags {
   section#header .session-times {
     display: none; }
 
-  section#jitter .row-wrapper .columns:first-child {
+  section#jitter .row-wrapper .workshop-meta {
     padding-right: 0; }
-    section#jitter .row-wrapper .columns:first-child .columns:first-child {
+    section#jitter .row-wrapper .workshop-meta .columns:first-child {
       padding-left: 0;
       padding-right: 0; }
-  section#jitter .session-times {
-    display: inline-block; }
+  section#jitter .workshop-session .session-times {
+    display: inline-block;
+    font-size: 0.8rem; }
   section#jitter h6.workshop-tags-small {
     display: block;
     font-size: 0.6rem;
-    text-align: center; }
+    text-align: center;
+    margin-top: 0.5rem;
+    padding: 0.1rem 0.2rem; }
   section#jitter h6.workshop-tags-mediumup {
     display: none; }
+  section#jitter button {
+    height: 1.5rem;
+    width: 1.5rem; }
+  section#jitter span.workshop-spots {
+    font-size: 0.8rem; }
  }
