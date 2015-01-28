@@ -140,6 +140,10 @@ Jitter.WorkshopController = Ember.ObjectController.extend({
         }).join(' & ');
     }.property(),
 
+    openSpots: function () {
+        return this.get('session_0_free_spots') && this.get('session_1_free_spots') < 0;
+    }.property('session_0_free_spots', 'session_1_free_spots'),
+
     actions: {
         showInfo: function () {
             var workshop = this.store.find('workshop', this.get('id'));

@@ -107,13 +107,29 @@ section#jitter {
     }
   }
 
-  .session-times {
-    display: none;
+  .available-spots {
+
+    span.no-attendance-info {
+      display: none;
+    }
+
+    span.workshop-spots {
+      vertical-align: super;
+      display: inline;
+    }
+
+    &[disabled] {
+     button, span.workshop-spots {
+       display: none;
+     }
+      span.no-attendance-info {
+        display: block;
+      }
+    }
   }
 
-  span.workshop-spots {
-    vertical-align: super;
-    display: inline;
+  .session-times {
+    display: none;
   }
 }
 

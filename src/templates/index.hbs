@@ -40,18 +40,32 @@
                         SESSION 1<br>
                         10:00 - 14:00<br>
                     </div>
-                    <button class="tiny" {{action 'toggleSignUp' 0}} {{bind-attr disabled='workshop.signUpForbidden0'}} {{bind-attr class='workshop.session_0_attending:success'}}>
-                    </button>
-                    <span class="workshop-spots">{{workshop.session_0_free_spots}}</span>
+                    <div class="available-spots" {{bind-attr disabled='workshop.openSpots'}}>
+                        <button class="tiny" {{action 'toggleSignUp' 0}} {{bind-attr disabled='workshop.signUpForbidden0'}} {{bind-attr class='workshop.session_0_attending:success'}}>
+                        </button>
+                        <span class="workshop-spots">
+                            {{workshop.session_0_free_spots}}
+                        </span>
+                        <span class="no-attendance-info">
+                            No booking for this workshop. Monkey Fab will support other workshops with their 3D printers.
+                        </span>
+                    </div>
                 </div>
                 <div class="small-6 medium-1 columns workshop-session">
                     <div class="session-times">
                         SESSION 2<br>
                         15:30 - 19:30<br>
                     </div>
-                    <button class="tiny" {{action 'toggleSignUp' 1}} {{bind-attr disabled='workshop.signUpForbidden1'}} {{bind-attr class='workshop.session_1_attending:success'}}>
-                    </button>
-                    <span class="workshop-spots">{{workshop.session_1_free_spots}}</span>
+                    <div class="available-spots" {{bind-attr disabled='workshop.openSpots'}}>
+                        <button class="tiny" {{action 'toggleSignUp' 1}} {{bind-attr disabled='workshop.signUpForbidden1'}} {{bind-attr class='workshop.session_1_attending:success'}}>
+                        </button>
+                        <span class="workshop-spots">
+                            {{workshop.session_1_free_spots}}
+                        </span>
+                        <span class="no-attendance-info">
+                            No booking for this workshop. Monkey Fab will support other workshops with their 3D printers.
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
