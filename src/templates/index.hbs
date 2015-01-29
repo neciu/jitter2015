@@ -76,7 +76,7 @@
 <div id="modal" class="reveal-modal workshop-modal" data-reveal>
     <div class="row">
         <div class="medium-2 columns workshop-modal-logo">
-            {{model.selectedWorkshop.image_url}}
+            <img {{bind-attr src='model.selectedWorkshop.image_url'}}/>
         </div>
         <div class="small-12 medium-10 columns">
             <h1>{{model.selectedWorkshop.name}}</h1>
