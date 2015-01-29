@@ -64069,8 +64069,8 @@ Jitter.IndexRoute = Ember.Route.extend({
                 var workshops = response.map(function (workshop) {
                     var w = store.createRecord('workshop', {
                         id: workshop.id,
-                        name : workshop.name,
-                        description : workshop.description,
+                        name: workshop.name,
+                        description: workshop.description,
                         image_url: workshop.image_url,
                         tags: workshop.tags
                     });
@@ -64107,6 +64107,8 @@ Jitter.WorkshopsController = Ember.ArrayController.extend({
 });
 
 Jitter.WorkshopController = Ember.ObjectController.extend({
+    needs: 'index',
+
     isAttending: function () {
         return this.get('session_0_attending') || this.get('session_1_attending');
     }.property('session_0_attending', 'session_1_attending'),
@@ -64119,8 +64121,8 @@ Jitter.WorkshopController = Ember.ObjectController.extend({
         return this.get('session_0_attending') || (this.get('session_1_free_spots') <= 0 && !this.get('session_1_attending'));
     }.property('session_1_free_spots', 'session_0_attending', 'session_1_attending'),
 
-    speakerList: function() {
-        return this.get('speakers').map(function(speaker){
+    speakerList: function () {
+        return this.get('speakers').map(function (speaker) {
             return speaker.get('name');
         }).join(' & ');
     }.property(),
@@ -64131,9 +64133,18 @@ Jitter.WorkshopController = Ember.ObjectController.extend({
 
     actions: {
         showInfo: function () {
-            var workshop = this.store.find('workshop', this.get('id'));
-            this.controllerFor('index').set('model.selectedWorkshop', workshop);
-            $('#modal').foundation('reveal', 'open');
+            if ($('#modal').hasClass('open')) {
+                return;
+            }
+
+            var controller = this;
+            Jitter.Workshop.store.findById('workshop', this.get('id'))
+                .then(function (workshop) {
+                    controller.get('controllers.index').set('model.selectedWorkshop', workshop);
+                    Ember.run.later(function () {
+                        $('#modal').foundation('reveal', 'open');
+                    }, 100);
+                });
         },
         toggleSignUp: function (slotNumber) {
             var data = {
