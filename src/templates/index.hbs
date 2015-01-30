@@ -1,13 +1,13 @@
 <section id="header">
     <div class="row">
-        <div class="small-12 medium-offset-2 medium-8 columns text-center booking-info">
+        <div class="small-24 medium-offset-2 medium-16 large-offset-4 large-16 columns text-center booking-info">
             Book one workshop in each session
         </div>
-        <div class="small-6 medium-1 columns session-times">
+        <div class="small-6 medium-3 large-2 columns session-times">
             SESSION 1<br>
             10:00 - 14:00<br>
         </div>
-        <div class="small-6 medium-1 columns session-times">
+        <div class="small-6 medium-3 large-2 columns session-times">
             SESSION 2<br>
             15:30 - 19:30<br>
         </div>
@@ -19,14 +19,14 @@
         <div class="row-wrapper" {{bind-attr class='workshop.isAttending:attending'}}>
             <div class="row">
                 <a>
-                    <div class="small-12 medium-10 columns workshop-meta" {{action 'showInfo'}}>
-                        <div class="small-2 medium-2 columns">
+                    <div class="small-24 medium-18 large-20 columns workshop-meta" {{action 'showInfo'}}>
+                        <div class="small-6 medium-6 large-4 columns image-tags">
                             <img {{bind-attr src=workshop.image_url}}>
                             {{#each tag in workshop.tags}}
                                 <h6 class="workshop-tags-small">{{tag}}</h6>
                             {{/each}}
                         </div>
-                        <div class="small-10 medium-10 columns">
+                        <div class="small-18 medium-18 large-20 columns workshop-description">
                             <h6 class="workshop-speaker">{{workshop.speakerList}}</h6>
                             <h6 class="workshop-name">{{workshop.name}}</h6>
                             {{#each tag in workshop.tags}}
@@ -35,34 +35,39 @@
                         </div>
                     </div>
                 </a>
-
-                <div class="small-12 medium-2 columns workshop-session" {{bind-attr disabled='workshop.openSpots'}}>
-                    <span class="no-attendance-info">
-                            No booking for this workshop. Monkey Fab will support other workshops with their 3D printers.
-                    </span>
-                </div>
-                <div class="small-6 medium-1 columns workshop-session" {{bind-attr disabled='workshop.openSpots'}}>
-                    <div class="session-times">
-                        SESSION 1<br>
-                        10:00 - 14:00<br>
-                    </div>
-                    <button class="tiny" {{action 'toggleSignUp' 0}} {{bind-attr disabled='workshop.signUpForbidden0'}} {{bind-attr class='workshop.session_0_attending:success'}}>
-                    </button>
-                        <span class="workshop-spots">
-                            {{workshop.session_0_free_spots}}
+                <!--<div class="row">-->
+                    <div class="small-24 medium-6 large-4 columns workshop-session" {{bind-attr class='workshop.openSpots:no-register'}}>
+                        <span class="no-attendance-info">
+                                No booking for this workshop. Monkey Fab will support other workshops with their 3D printers.
                         </span>
-                </div>
-                <div class="small-6 medium-1 columns workshop-session" {{bind-attr disabled='workshop.openSpots'}}>
-                    <div class="session-times">
-                        SESSION 2<br>
-                        15:30 - 19:30<br>
                     </div>
-                    <button class="tiny" {{action 'toggleSignUp' 1}} {{bind-attr disabled='workshop.signUpForbidden1'}} {{bind-attr class='workshop.session_1_attending:success'}}>
-                    </button>
-                        <span class="workshop-spots">
-                            {{workshop.session_1_free_spots}}
-                        </span>
-                </div>
+                    <div class="small-offset-7 small-8 medium-offset-0 medium-3 large-2 columns workshop-session" {{bind-attr class='workshop.openSpots:no-register'}}>
+                        <div class="session-times">
+                            SESSION 1<br>
+                            10:00 - 14:00<br>
+                        </div>
+                        <div class="workshop-register">
+                            <button class="tiny" {{action 'toggleSignUp' 0}} {{bind-attr disabled='workshop.signUpForbidden0'}} {{bind-attr class='workshop.session_0_attending:success'}}>
+                            </button>
+                            <span class="workshop-spots">
+                                {{workshop.session_0_free_spots}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="small-9 medium-3 large-2 columns workshop-session" {{bind-attr class='workshop.openSpots:no-register'}}>
+                        <div class="session-times">
+                            SESSION 2<br>
+                            15:30 - 19:30<br>
+                        </div>
+                        <div class="workshop-register">
+                            <button class="tiny" {{action 'toggleSignUp' 1}} {{bind-attr disabled='workshop.signUpForbidden1'}} {{bind-attr class='workshop.session_1_attending:success'}}>
+                            </button>
+                            <span class="workshop-spots">
+                                {{workshop.session_1_free_spots}}
+                            </span>
+                        </div>
+                    </div>
+                <!--</div>-->
             </div>
         </div>
     {{/each}}

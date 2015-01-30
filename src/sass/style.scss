@@ -1,9 +1,20 @@
 @import "normalize";
 $total-columns: 24;
+$row-width: rem-calc(1200);
 @import "foundation";
+
+// Reveal modal background height fix.
+.reveal-modal-bg {
+  position: fixed;
+}
 
 // VARIABLES
 // ******************
+
+$smaller-range: (0rem, 32.500rem); // 0px, 520px
+$smaller-only: "#{$screen} and (max-width: #{upper-bound($smaller-range)})";
+
+
 
 $jitter-font: "Lato";
 $modal-workshop-h1-size: 2.4rem;
@@ -29,9 +40,213 @@ h1, h2, h3, h4, h5, h6, p {
   font-family: $jitter-font;
 }
 
-.row {
-  max-width: 70rem;
+//.row {
+//  max-width: 70rem;
+//}
+
+.ember-view {
+  overflow-x: hidden;
 }
+
+// MEDIA QUERIES
+// *************
+
+@media #{$smaller-only} {
+
+  section#jitter {
+    .workshop-session {
+      .workshop-register {
+        display: block;
+      }
+    }
+  }
+}
+
+@media  #{$small-up} {
+  section#header {
+    .booking-info {
+      font-size: 1.1rem;
+    }
+    .session-times {
+      display: none;
+    }
+  }
+
+  section#jitter {
+
+    .row-wrapper {
+      .workshop-meta {
+        padding-right: 0;
+
+        .workshop-description {
+//          padding-left: 1.875rem;
+          padding-right: 0;
+        }
+
+        .columns:first-child {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+
+    .image-tags {
+      text-align: center;
+    }
+
+    .workshop-session {
+
+//      padding-left: 0;
+//      padding-right: 0;
+
+      //      &:nth-child(even) {
+      //        padding-right: 0;
+      //        padding-left: 1.77rem;
+      //      }
+      //
+      //      &:nth-child(odd) {
+      //        padding-left: 0.5rem;
+      //        padding-right: 0;
+      //      }
+
+      .session-times {
+        display: inline-block;
+        font-size: 0.7rem;
+      }
+
+      &.no-register {
+        button, span.workshop-spots {
+          display: none;
+        }
+
+        .session-times {
+          display: none;
+        }
+
+        span.no-attendance-info {
+          display: block;
+        }
+      }
+    }
+
+    .workshop-register {
+      display: inline-block;
+    }
+
+    h6 {
+      &.workshop-tags-small {
+        display: block;
+        font-size: 0.6rem;
+        text-align: center;
+        margin-top: 0.5rem;
+        padding: 0.1rem 0.2rem;
+      }
+      &.workshop-tags-mediumup {
+        display: none;
+      }
+      &.workshop-speaker {
+        font-size: 1rem;
+        font-weight: 300;
+      }
+      &.workshop-name {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+    }
+
+    button {
+      border: 1px solid black;
+      border-radius: 1000px;
+      height: 1.5rem;
+      width: 1.5rem;
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+      &[disabled] {
+        border-color: #cccccc;
+      }
+      &.success {
+        background-color: #a1e213;
+      }
+    }
+    .workshop-session {
+      span.workshop-spots {
+        font-size: 0.8rem;
+      }
+    }
+
+  }
+}
+
+@media #{$medium-up} {
+  section#header {
+    .session-times {
+      display: block;
+    }
+      .booking-info {
+        font-size: 1.6rem;
+      }
+  }
+  section#jitter {
+    .workshop-session {
+
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem;
+
+      .session-times {
+        display: none;
+      }
+      button {
+        height: 1.7rem;
+        width: 1.7rem;
+      }
+    }
+    .workshop-description {
+      h6 {
+        &.workshop-tags-mediumup {
+          display: inline;
+        }
+        &.workshop-speaker {
+          font-size: 1.2rem;
+        }
+        &.workshop-name {
+          font-size: 1.4rem;
+        }
+      }
+    }
+    h6.workshop-tags-small {
+      display: none;
+    }
+  }
+}
+
+//@media #{$medium-only} {
+//  section#jitter {
+//    .workshop-register {
+//      button {
+//        height: 1.7rem;
+//        width: 1.7rem;
+//      }
+//    }
+//  }
+//}
+
+@media #{$large-up} {
+  section#jitter {
+    .workshop-register {
+      button {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+  }
+}
+
+
+// -------------
+
+
 
 section#header {
 
@@ -41,13 +256,9 @@ section#header {
     padding: 3rem 0 1rem;
   }
 
-  .booking-info {
-    font-size: 1.6rem;
-  }
-
   .session-times {
     font-weight: bold;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -55,27 +266,11 @@ section#jitter {
 
   h6 {
 
-    &.workshop-speaker {
-      font-size: 1.2rem;
-      font-weight: 300;
-    }
-
-    &.workshop-name {
-      font-size: 1.4rem;
-      text-transform: uppercase;
-      font-weight: 400;
-    }
 
     &[class^='workshop-tags-'] {
       @extend .tags;
     }
 
-    &.workshop-tags-small {
-      display: none;
-    }
-    &.workshop-tags-mediumup {
-      display:inline;
-    }
   }
 
 
@@ -92,22 +287,6 @@ section#jitter {
     padding: 1rem 0 0.5rem 0;
   }
 
-  button {
-    border: 1px solid black;
-    border-radius: 1000px;
-    height: 2rem;
-    width: 2rem;
-    padding: 0;
-    margin: 0;
-    background-color: transparent;
-    &[disabled] {
-      border-color: #cccccc;
-    }
-    &.success {
-      background-color: #a1e213;
-    }
-  }
-
   .workshop-session {
 
     span.no-attendance-info {
@@ -117,6 +296,7 @@ section#jitter {
     span.workshop-spots {
       vertical-align: super;
       display: inline;
+      font-size: 1rem;
     }
 
     &[disabled] {
@@ -171,75 +351,3 @@ div#modal {
     display: inline;
   }
 }
-
-
-// MEDIA QUERIES
-// *************
-
-@media  #{$small-only} {
-  section#header {
-    .booking-info {
-      font-size: 1.1rem;
-    }
-    .session-times {
-      display: none;
-    }
-  }
-
-  section#jitter {
-
-    .row-wrapper {
-      .workshop-meta {
-        padding-right: 0;
-
-        .columns:first-child {
-          padding-left: 0;
-          padding-right: 0;
-        }
-      }
-    }
-
-    .workshop-session {
-
-//      &:nth-child(even) {
-//        padding-right: 0;
-//        padding-left: 1.77rem;
-//      }
-//
-//      &:nth-child(odd) {
-//        padding-left: 0.5rem;
-//        padding-right: 0;
-//      }
-
-      .session-times {
-        display: inline-block;
-        font-size: 0.8rem;
-      }
-    }
-
-    h6 {
-      &.workshop-tags-small {
-        display: block;
-        font-size: 0.6rem;
-        text-align: center;
-        margin-top: 0.5rem;
-        padding: 0.1rem 0.2rem;
-      }
-      &.workshop-tags-mediumup {
-        display: none;
-      }
-    }
-
-    button {
-      height: 1.5rem;
-      width: 1.5rem;
-    }
-
-    span.workshop-spots {
-      font-size: 0.8rem;
-    }
-
-  }
-}
-
-// -------------

@@ -438,7 +438,7 @@ select {
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
-  max-width: 62.5rem; }
+  max-width: rem-calc(1200); }
   .row:before, .row:after {
     content: " ";
     display: table; }
@@ -4912,7 +4912,7 @@ ul.pagination {
   @media only screen and (min-width:40.063em) {
     .reveal-modal, dialog {
       width: 80%;
-      max-width: 62.5rem;
+      max-width: rem-calc(1200);
       left: 0;
       right: 0;
       margin: 0 auto; } }
@@ -4928,35 +4928,35 @@ ul.pagination {
   @media only screen and (min-width:40.063em) {
     .reveal-modal.tiny, dialog.tiny {
       width: 30%;
-      max-width: 62.5rem;
+      max-width: rem-calc(1200);
       left: 0;
       right: 0;
       margin: 0 auto; } }
   @media only screen and (min-width:40.063em) {
     .reveal-modal.small, dialog.small {
       width: 40%;
-      max-width: 62.5rem;
+      max-width: rem-calc(1200);
       left: 0;
       right: 0;
       margin: 0 auto; } }
   @media only screen and (min-width:40.063em) {
     .reveal-modal.medium, dialog.medium {
       width: 60%;
-      max-width: 62.5rem;
+      max-width: rem-calc(1200);
       left: 0;
       right: 0;
       margin: 0 auto; } }
   @media only screen and (min-width:40.063em) {
     .reveal-modal.large, dialog.large {
       width: 70%;
-      max-width: 62.5rem;
+      max-width: rem-calc(1200);
       left: 0;
       right: 0;
       margin: 0 auto; } }
   @media only screen and (min-width:40.063em) {
     .reveal-modal.xlarge, dialog.xlarge {
       width: 95%;
-      max-width: 62.5rem;
+      max-width: rem-calc(1200);
       left: 0;
       right: 0;
       margin: 0 auto; } }
@@ -4971,7 +4971,7 @@ ul.pagination {
     @media only screen and (min-width:40.063em) {
       .reveal-modal.full, dialog.full {
         width: 100vw;
-        max-width: 62.5rem;
+        max-width: rem-calc(1200);
         left: 0;
         right: 0;
         margin: 0 auto; } }
@@ -5809,7 +5809,7 @@ meta.foundation-mq-topbar {
       background: #333333; }
 
   .contain-to-grid .top-bar {
-    max-width: 62.5rem;
+    max-width: rem-calc(1200);
     margin: 0 auto;
     margin-bottom: 0; }
 
@@ -7163,6 +7163,9 @@ th.hide-for-touch {
     display: table-cell !important; }
  }
 
+.reveal-modal-bg {
+  position: fixed; }
+
 .tags, section#jitter h6[class^='workshop-tags-'], div#modal .workshop-modal-tags {
   margin-right: 2px;
   background: #d6ee1a;
@@ -7172,28 +7175,107 @@ th.hide-for-touch {
 h1, h2, h3, h4, h5, h6, p {
   font-family: "Lato"; }
 
-.row {
-  max-width: 70rem; }
+.ember-view {
+  overflow-x: hidden; }
+
+@media only screen and (max-width: 32.5rem) {
+  section#jitter .workshop-session .workshop-register {
+    display: block; }
+ }
+
+@media only screen {
+  section#header .booking-info {
+    font-size: 1.1rem; }
+  section#header .session-times {
+    display: none; }
+
+  section#jitter .row-wrapper .workshop-meta {
+    padding-right: 0; }
+    section#jitter .row-wrapper .workshop-meta .workshop-description {
+      padding-right: 0; }
+    section#jitter .row-wrapper .workshop-meta .columns:first-child {
+      padding-left: 0;
+      padding-right: 0; }
+  section#jitter .image-tags {
+    text-align: center; }
+  section#jitter .workshop-session .session-times {
+    display: inline-block;
+    font-size: 0.7rem; }
+  section#jitter .workshop-session.no-register button, section#jitter .workshop-session.no-register span.workshop-spots {
+    display: none; }
+  section#jitter .workshop-session.no-register .session-times {
+    display: none; }
+  section#jitter .workshop-session.no-register span.no-attendance-info {
+    display: block; }
+  section#jitter .workshop-register {
+    display: inline-block; }
+  section#jitter h6.workshop-tags-small {
+    display: block;
+    font-size: 0.6rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    padding: 0.1rem 0.2rem; }
+  section#jitter h6.workshop-tags-mediumup {
+    display: none; }
+  section#jitter h6.workshop-speaker {
+    font-size: 1rem;
+    font-weight: 300; }
+  section#jitter h6.workshop-name {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 400; }
+  section#jitter button {
+    border: 1px solid black;
+    border-radius: 1000px;
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0;
+    margin: 0;
+    background-color: transparent; }
+    section#jitter button[disabled] {
+      border-color: #cccccc; }
+    section#jitter button.success {
+      background-color: #a1e213; }
+  section#jitter .workshop-session span.workshop-spots {
+    font-size: 0.8rem; }
+ }
+
+@media only screen and (min-width:40.063em) {
+  section#header .session-times {
+    display: block; }
+  section#header .booking-info {
+    font-size: 1.6rem; }
+
+  section#jitter .workshop-session {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem; }
+    section#jitter .workshop-session .session-times {
+      display: none; }
+    section#jitter .workshop-session button {
+      height: 1.7rem;
+      width: 1.7rem; }
+  section#jitter .workshop-description h6.workshop-tags-mediumup {
+    display: inline; }
+  section#jitter .workshop-description h6.workshop-speaker {
+    font-size: 1.2rem; }
+  section#jitter .workshop-description h6.workshop-name {
+    font-size: 1.4rem; }
+  section#jitter h6.workshop-tags-small {
+    display: none; }
+ }
+
+@media only screen and (min-width:64.063em) {
+  section#jitter .workshop-register button {
+    height: 2rem;
+    width: 2rem; }
+ }
 
 section#header .booking-info, section#header .session-times {
   padding: 3rem 0 1rem; }
-section#header .booking-info {
-  font-size: 1.6rem; }
 section#header .session-times {
   font-weight: bold;
-  font-size: 0.7rem; }
+  font-size: 0.8rem; }
 
-section#jitter h6.workshop-speaker {
-  font-size: 1.2rem;
-  font-weight: 300; }
-section#jitter h6.workshop-name {
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  font-weight: 400; }
-section#jitter h6.workshop-tags-small {
-  display: none; }
-section#jitter h6.workshop-tags-mediumup {
-  display: inline; }
 section#jitter .row-wrapper {
   border: 0 solid black;
   border-top-width: 1px;
@@ -7203,23 +7285,12 @@ section#jitter .row-wrapper {
     border-bottom-width: 1px; }
   section#jitter .row-wrapper.attending {
     background-color: #f5f6d1; }
-section#jitter button {
-  border: 1px solid black;
-  border-radius: 1000px;
-  height: 2rem;
-  width: 2rem;
-  padding: 0;
-  margin: 0;
-  background-color: transparent; }
-  section#jitter button[disabled] {
-    border-color: #cccccc; }
-  section#jitter button.success {
-    background-color: #a1e213; }
 section#jitter .workshop-session span.no-attendance-info {
   display: none; }
 section#jitter .workshop-session span.workshop-spots {
   vertical-align: super;
-  display: inline; }
+  display: inline;
+  font-size: 1rem; }
 section#jitter .workshop-session[disabled] button, section#jitter .workshop-session[disabled] span.workshop-spots {
   display: none; }
 section#jitter .workshop-session[disabled] span.no-attendance-info {
@@ -7243,32 +7314,3 @@ div#modal .row:nth-child(2) .columns:last-child {
   float: left; }
 div#modal .workshop-modal-tags {
   display: inline; }
-
-@media only screen and (max-width: 40em) {
-  section#header .booking-info {
-    font-size: 1.1rem; }
-  section#header .session-times {
-    display: none; }
-
-  section#jitter .row-wrapper .workshop-meta {
-    padding-right: 0; }
-    section#jitter .row-wrapper .workshop-meta .columns:first-child {
-      padding-left: 0;
-      padding-right: 0; }
-  section#jitter .workshop-session .session-times {
-    display: inline-block;
-    font-size: 0.8rem; }
-  section#jitter h6.workshop-tags-small {
-    display: block;
-    font-size: 0.6rem;
-    text-align: center;
-    margin-top: 0.5rem;
-    padding: 0.1rem 0.2rem; }
-  section#jitter h6.workshop-tags-mediumup {
-    display: none; }
-  section#jitter button {
-    height: 1.5rem;
-    width: 1.5rem; }
-  section#jitter span.workshop-spots {
-    font-size: 0.8rem; }
- }
