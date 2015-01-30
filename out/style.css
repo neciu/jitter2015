@@ -7184,6 +7184,19 @@ h1, h2, h3, h4, h5, h6, p {
  }
 
 @media only screen {
+  section#header-bar {
+    height: 4.75rem; }
+    section#header-bar .navbar {
+      padding-left: 0;
+      padding-right: 0; }
+    section#header-bar .top-bar {
+      background-color: black;
+      height: 4.75rem;
+      line-height: 4.25rem; }
+      section#header-bar .top-bar .logo-event {
+        max-width: 14.35rem;
+        margin-left: 1rem; }
+
   section#header .booking-info {
     font-size: 1.1rem; }
   section#header .session-times {
@@ -7249,6 +7262,8 @@ h1, h2, h3, h4, h5, h6, p {
   section#jitter .workshop-session {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem; }
+    section#jitter .workshop-session:nth-child(2) {
+      padding-left: 0; }
     section#jitter .workshop-session .session-times {
       display: none; }
     section#jitter .workshop-session button {
@@ -7262,6 +7277,11 @@ h1, h2, h3, h4, h5, h6, p {
     font-size: 1.4rem; }
   section#jitter h6.workshop-tags-small {
     display: none; }
+ }
+
+@media only screen and (min-width:40.063em) and (max-width:64em) {
+  section#jitter .workshop-session:nth-child(3) {
+    padding-right: 0; }
  }
 
 @media only screen and (min-width:64.063em) {

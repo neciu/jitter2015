@@ -1,6 +1,23 @@
+<section id="header-bar">
+    <div class="row">
+        <div class="large-24 columns navbar">
+            <header>
+                <nav class="top-bar" data-topbar>
+                    <div class="logo-event">
+                        <a href="/"><img src="../static/img/mce_logo_web.png" alt="MCE 2015 official logo" /></a>
+                    </div>
+                </nav>
+            </header>
+        </div>
+    </div>
+</section>
+
 <section id="header">
     <div class="row">
         <div class="small-24 medium-offset-2 medium-16 large-offset-4 large-14 columns text-center booking-info">
+            {{# if userName}}
+                Hello {{userName}}!
+            {{/if}}
             Book one workshop in each session
         </div>
         <div class="small-6 medium-3 large-3 columns session-times">

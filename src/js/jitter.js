@@ -107,7 +107,11 @@ Jitter.IndexRoute = Ember.Route.extend({
 });
 
 Jitter.IndexController = Ember.Controller.extend({
-    needs: ['workshops']
+    needs: ['workshops'],
+
+    userName: function () {
+        return localStorage.getItem('userName');
+    }.property()
 });
 
 Jitter.IndexView = Ember.View.extend({
@@ -183,7 +187,7 @@ Jitter.AuthenticateRoute = Ember.Route.extend({
         Jitter.request('/api/workshops/authenticate?token=' + Jitter.token, 'GET')
             .then(function (response) {
                 localStorage.setItem('token', params.authenticationToken);
-                console.log(response);
+                localStorage.setItem('userName', response.first_name + ' ' + response.last_name);
                 route.transitionTo('index');
             })
             .fail(function (error) {

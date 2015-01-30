@@ -3,6 +3,13 @@ Ember.TEMPLATES["authenticate"] = Ember.Handlebars.template({"compiler":[6,">= 2
   },"useData":true});
 
 Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helpers,partials,data) {
+  var stack1, buffer = '';
+  data.buffer.push("                Hello ");
+  stack1 = helpers._triageMustache.call(depth0, "userName", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
+  if (stack1 != null) { data.buffer.push(stack1); }
+  data.buffer.push("!\n");
+  return buffer;
+},"3":function(depth0,helpers,partials,data) {
   var stack1, escapeExpression=this.escapeExpression, buffer = '';
   data.buffer.push("        <div class=\"row-wrapper\" ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
@@ -15,7 +22,7 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
     'src': ("workshop.image_url")
   },"hashTypes":{'src': "ID"},"hashContexts":{'src': depth0},"types":[],"contexts":[],"data":data})));
   data.buffer.push(">\n");
-  stack1 = helpers.each.call(depth0, "tag", "in", "workshop.tags", {"name":"each","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(2, data),"inverse":this.noop,"types":["ID","ID","ID"],"contexts":[depth0,depth0,depth0],"data":data});
+  stack1 = helpers.each.call(depth0, "tag", "in", "workshop.tags", {"name":"each","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(4, data),"inverse":this.noop,"types":["ID","ID","ID"],"contexts":[depth0,depth0,depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("                        </div>\n                        <div class=\"small-18 medium-18 large-20 columns workshop-description\">\n                            <h6 class=\"workshop-speaker\">");
   stack1 = helpers._triageMustache.call(depth0, "workshop.speakerList", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
@@ -24,7 +31,7 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
   stack1 = helpers._triageMustache.call(depth0, "workshop.name", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("</h6>\n");
-  stack1 = helpers.each.call(depth0, "tag", "in", "workshop.tags", {"name":"each","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(4, data),"inverse":this.noop,"types":["ID","ID","ID"],"contexts":[depth0,depth0,depth0],"data":data});
+  stack1 = helpers.each.call(depth0, "tag", "in", "workshop.tags", {"name":"each","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(6, data),"inverse":this.noop,"types":["ID","ID","ID"],"contexts":[depth0,depth0,depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("                        </div>\n                    </div>\n                </a>\n                    <div class=\"small-24 medium-6 large-6 columns\">\n                        <div class=\"small-offset-6 small-18 medium-offset-0 medium-24 large-24 columns workshop-session\"  ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
@@ -66,28 +73,28 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("\n                            </span>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n");
   return buffer;
-},"2":function(depth0,helpers,partials,data) {
+},"4":function(depth0,helpers,partials,data) {
   var stack1, buffer = '';
   data.buffer.push("                                <h6 class=\"workshop-tags-small\">");
   stack1 = helpers._triageMustache.call(depth0, "tag", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("</h6>\n");
   return buffer;
-},"4":function(depth0,helpers,partials,data) {
+},"6":function(depth0,helpers,partials,data) {
   var stack1, buffer = '';
   data.buffer.push("                                <h6 class=\"workshop-tags-mediumup\">");
   stack1 = helpers._triageMustache.call(depth0, "tag", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("</h6>\n");
   return buffer;
-},"6":function(depth0,helpers,partials,data) {
+},"8":function(depth0,helpers,partials,data) {
   var stack1, buffer = '';
   data.buffer.push("                <h6 class=\"workshop-modal-tags\">");
   stack1 = helpers._triageMustache.call(depth0, "tag", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("</h6>\n");
   return buffer;
-},"8":function(depth0,helpers,partials,data) {
+},"10":function(depth0,helpers,partials,data) {
   var stack1, escapeExpression=this.escapeExpression, buffer = '';
   data.buffer.push("            <div class=\"small-24 medium-12 columns\">\n                <img ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
@@ -106,8 +113,11 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
   return buffer;
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var stack1, escapeExpression=this.escapeExpression, buffer = '';
-  data.buffer.push("<section id=\"header\">\n    <div class=\"row\">\n        <div class=\"small-24 medium-offset-2 medium-16 large-offset-4 large-14 columns text-center booking-info\">\n            Book one workshop in each session\n        </div>\n        <div class=\"small-6 medium-3 large-3 columns session-times\">\n            SESSION 1<br>\n            10:00 - 14:00<br>\n        </div>\n        <div class=\"small-6 medium-3 large-3 columns session-times\">\n            SESSION 2<br>\n            15:30 - 19:30<br>\n        </div>\n    </div>\n</section>\n\n<section id=\"jitter\">\n");
-  stack1 = helpers.each.call(depth0, "workshop", "in", "controllers.workshops", {"name":"each","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(1, data),"inverse":this.noop,"types":["ID","ID","ID"],"contexts":[depth0,depth0,depth0],"data":data});
+  data.buffer.push("<section id=\"header-bar\">\n    <div class=\"row\">\n        <div class=\"large-24 columns navbar\">\n            <header>\n                <nav class=\"top-bar\" data-topbar>\n                    <div class=\"logo-event\">\n                        <a href=\"/\"><img src=\"../static/img/mce_logo_web.png\" alt=\"MCE 2015 official logo\" /></a>\n                    </div>\n                </nav>\n            </header>\n        </div>\n    </div>\n</section>\n\n<section id=\"header\">\n    <div class=\"row\">\n        <div class=\"small-24 medium-offset-2 medium-16 large-offset-4 large-14 columns text-center booking-info\">\n");
+  stack1 = helpers['if'].call(depth0, "userName", {"name":"if","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(1, data),"inverse":this.noop,"types":["ID"],"contexts":[depth0],"data":data});
+  if (stack1 != null) { data.buffer.push(stack1); }
+  data.buffer.push("            Book one workshop in each session\n        </div>\n        <div class=\"small-6 medium-3 large-3 columns session-times\">\n            SESSION 1<br>\n            10:00 - 14:00<br>\n        </div>\n        <div class=\"small-6 medium-3 large-3 columns session-times\">\n            SESSION 2<br>\n            15:30 - 19:30<br>\n        </div>\n    </div>\n</section>\n\n<section id=\"jitter\">\n");
+  stack1 = helpers.each.call(depth0, "workshop", "in", "controllers.workshops", {"name":"each","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(3, data),"inverse":this.noop,"types":["ID","ID","ID"],"contexts":[depth0,depth0,depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("</section>\n\n<div id=\"modal\" class=\"reveal-modal workshop-modal\" data-reveal>\n    <div class=\"row\">\n        <div class=\"show-for-medium-up medium-4 large-4 columns workshop-modal-logo\">\n            <img ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
@@ -120,10 +130,10 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
   stack1 = helpers._triageMustache.call(depth0, "model.selectedWorkshop.description", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("</p>\n");
-  stack1 = helpers.each.call(depth0, "tag", "in", "model.selectedWorkshop.tags", {"name":"each","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(6, data),"inverse":this.noop,"types":["ID","ID","ID"],"contexts":[depth0,depth0,depth0],"data":data});
+  stack1 = helpers.each.call(depth0, "tag", "in", "model.selectedWorkshop.tags", {"name":"each","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(8, data),"inverse":this.noop,"types":["ID","ID","ID"],"contexts":[depth0,depth0,depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("        </div>\n    </div>\n\n    <div class=\"row\">\n");
-  stack1 = helpers.each.call(depth0, "speaker", "in", "model.selectedWorkshop.speakers", {"name":"each","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(8, data),"inverse":this.noop,"types":["ID","ID","ID"],"contexts":[depth0,depth0,depth0],"data":data});
+  stack1 = helpers.each.call(depth0, "speaker", "in", "model.selectedWorkshop.speakers", {"name":"each","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(10, data),"inverse":this.noop,"types":["ID","ID","ID"],"contexts":[depth0,depth0,depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("    </div>\n\n    <a class=\"close-reveal-modal\">&#215;</a>\n</div>\n\n");
   return buffer;
