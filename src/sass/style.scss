@@ -14,7 +14,9 @@ $row-width: rem-calc(1200);
 $smaller-range: (0rem, 32.500rem); // 0px, 520px
 $smaller-only: "#{$screen} and (max-width: #{upper-bound($smaller-range)})";
 
-
+$mce-yellow: #D6EE1A;
+$dark-color: black;
+$button-size-lt1024: 1.25rem;
 
 $jitter-font: "Lato";
 $modal-workshop-h1-size: 2.4rem;
@@ -32,6 +34,21 @@ $modal-speaker-h3-size: 1.1rem;
   background: #d6ee1a;
   padding: 0.1rem 0.5rem;
   text-transform: uppercase;
+}
+
+.mce-button {
+  background-color: $mce-yellow;
+  color: $dark-color;
+  font-size: $button-size-lt1024;
+  /*padding: 1.3rem 7.5rem;*/
+  padding: 0.625rem 2.5rem; /* 12px 48px */
+  /*15px 60px for desktop*/
+  cursor: pointer;
+
+  &:hover {
+    background: black;
+    color: $mce-yellow;
+  }
 }
 
 // -------------------
@@ -76,13 +93,19 @@ h1, h2, h3, h4, h5, h6, p {
       line-height: 4.25rem;
 
       .logo-event {
-        max-width: 14.35rem;
+        max-width: 11rem;
         margin-left: 1rem;
       }
     }
   }
 
   section#header {
+
+    .agenda-button {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
     .booking-info {
       font-size: 1.1rem;
     }
@@ -94,12 +117,23 @@ h1, h2, h3, h4, h5, h6, p {
   section#jitter {
 
     .row-wrapper {
+      border: 0 solid black;
+      border-bottom-width: 1px;
+      &:first-child {
+        border-top-width: 1px;
+      }
+      &.attending {
+        background-color: #f5f6d1;
+      }
+      transition: background-color 300ms ease-out;
+      padding: 1rem 0 0.5rem 0;
+
       .workshop-meta {
-//        padding-right: 0;
+        //        padding-right: 0;
 
         .workshop-description {
-//          padding-left: 1.875rem;
-//          padding-right: 0;
+          //          padding-left: 1.875rem;
+          //          padding-right: 0;
         }
 
         .columns:first-child {
@@ -108,6 +142,7 @@ h1, h2, h3, h4, h5, h6, p {
         }
       }
     }
+
 
     .image-tags {
       text-align: center;
@@ -183,6 +218,11 @@ h1, h2, h3, h4, h5, h6, p {
       }
     }
 
+    .agenda-button {
+      text-align: center;
+      margin: 4rem 0rem;
+    }
+
   }
 
   div#modal {
@@ -191,6 +231,16 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 @media #{$medium-up} {
+
+  section#header-bar {
+    .top-bar {
+
+      .logo-event {
+        max-width: 14.35rem;
+      }
+    }
+  }
+
   section#header {
     .session-times {
       display: block;
@@ -208,8 +258,6 @@ h1, h2, h3, h4, h5, h6, p {
       &:nth-child(2) {
         padding-left: 0;
       }
-
-
 
       .session-times {
         display: none;
@@ -272,7 +320,7 @@ section#header {
 //  font-family: $jitter-font;
 
   .booking-info, .session-times {
-    padding: 3rem 0 1rem;
+    padding: 2rem 0 1rem;
   }
 
   .session-times {
@@ -290,20 +338,6 @@ section#jitter {
       @extend .tags;
     }
 
-  }
-
-
-  .row-wrapper {
-    border: 0 solid black;
-    border-top-width: 1px;
-    &:last-child {
-      border-bottom-width: 1px;
-    }
-    &.attending {
-      background-color: #f5f6d1;
-    }
-    transition: background-color 300ms ease-out;
-    padding: 1rem 0 0.5rem 0;
   }
 
   .workshop-session {
