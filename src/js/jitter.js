@@ -103,6 +103,7 @@ Jitter.IndexRoute = Ember.Route.extend({
                 }
             });
         controller.set('model', model);
+        controller.set('userName', localStorage.getItem('userName'));
     }
 });
 
@@ -183,7 +184,7 @@ Jitter.AuthenticateRoute = Ember.Route.extend({
         Jitter.request('/api/workshops/authenticate?token=' + Jitter.token, 'GET')
             .then(function (response) {
                 localStorage.setItem('token', params.authenticationToken);
-                console.log(response);
+                localStorage.setItem('userName', response.first_name + ' ' + response.last_name);
                 route.transitionTo('index');
             })
             .fail(function (error) {
