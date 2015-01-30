@@ -15,6 +15,9 @@
 <section id="header">
     <div class="row">
         <div class="small-24 medium-offset-2 medium-16 large-offset-4 large-14 columns text-center booking-info">
+            {{# if userName}}
+                Hello {{userName}}!
+            {{/if}}
             Book one workshop in each session
         </div>
         <div class="small-6 medium-3 large-3 columns session-times">
