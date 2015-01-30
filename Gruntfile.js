@@ -45,7 +45,7 @@ module.exports = function (grunt) {
         preprocess : {
             dev: {
                 src : 'src/html/index.html',
-                dest : 'out/index.html',
+                dest : 'index.html',
                 options : {
                     context : {
                         env: 'DEVELOPMENT'
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 src : 'src/html/index.html',
-                dest : 'out/index.html',
+                dest : 'index.html',
                 options : {
                     context : {
                         env: 'DISTRIBUTION'
