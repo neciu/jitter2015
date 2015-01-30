@@ -3,6 +3,11 @@ $total-columns: 24;
 $row-width: rem-calc(1200);
 @import "foundation";
 
+// Reveal modal background height fix.
+.reveal-modal-bg {
+  position: fixed;
+}
+
 // VARIABLES
 // ******************
 
