@@ -103,15 +103,12 @@ Jitter.IndexRoute = Ember.Route.extend({
                 }
             });
         controller.set('model', model);
+        controller.set('userName', localStorage.getItem('userName'));
     }
 });
 
 Jitter.IndexController = Ember.Controller.extend({
-    needs: ['workshops'],
-
-    userName: function () {
-        return localStorage.getItem('userName');
-    }.property()
+    needs: ['workshops']
 });
 
 Jitter.IndexView = Ember.View.extend({
