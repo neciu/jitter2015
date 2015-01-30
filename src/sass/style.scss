@@ -76,11 +76,11 @@ h1, h2, h3, h4, h5, h6, p {
 
     .row-wrapper {
       .workshop-meta {
-        padding-right: 0;
+//        padding-right: 0;
 
         .workshop-description {
 //          padding-left: 1.875rem;
-          padding-right: 0;
+//          padding-right: 0;
         }
 
         .columns:first-child {
@@ -95,19 +95,6 @@ h1, h2, h3, h4, h5, h6, p {
     }
 
     .workshop-session {
-
-//      padding-left: 0;
-//      padding-right: 0;
-
-      //      &:nth-child(even) {
-      //        padding-right: 0;
-      //        padding-left: 1.77rem;
-      //      }
-      //
-      //      &:nth-child(odd) {
-      //        padding-left: 0.5rem;
-      //        padding-right: 0;
-      //      }
 
       .session-times {
         display: inline-block;
@@ -125,6 +112,7 @@ h1, h2, h3, h4, h5, h6, p {
 
         span.no-attendance-info {
           display: block;
+          font-weight: 300;
         }
       }
     }
@@ -177,6 +165,10 @@ h1, h2, h3, h4, h5, h6, p {
     }
 
   }
+
+  div#modal {
+    max-width: 64rem;
+  }
 }
 
 @media #{$medium-up} {
@@ -193,6 +185,8 @@ h1, h2, h3, h4, h5, h6, p {
 
       padding-left: 0.9375rem;
       padding-right: 0.9375rem;
+
+
 
       .session-times {
         display: none;
