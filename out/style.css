@@ -7321,6 +7321,8 @@ h1, h2, h3, h4, h5, h6, p {
     width: 2rem; }
  }
 
+section#header .hello {
+  padding-top: 0.5rem; }
 section#header .booking-info, section#header .session-times {
   padding: 2rem 0 1rem; }
 section#header .session-times {
