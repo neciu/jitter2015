@@ -104,6 +104,7 @@ Jitter.IndexRoute = Ember.Route.extend({
             });
         controller.set('model', model);
         controller.set('userName', localStorage.getItem('userName'));
+        controller.set('isAuthenticated', Boolean(localStorage.getItem('token')));
     }
 });
 
@@ -146,6 +147,11 @@ Jitter.WorkshopController = Ember.ObjectController.extend({
     openSpots: function () {
         return this.get('session_0_free_spots') && this.get('session_1_free_spots') === -1;
     }.property('session_0_free_spots', 'session_1_free_spots'),
+
+    registrationDisabled : function() {
+        console.log(!this.get('controllers.index').get('isAuthenticated'));
+        return !this.get('controllers.index').get('isAuthenticated');
+    }.property(),
 
     actions: {
         showInfo: function () {

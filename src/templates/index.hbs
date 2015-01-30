@@ -14,25 +14,35 @@
 
 <section id="header">
     <div class="row">
+        <div class="small-24 columns">
+            <p class="hello">
+                {{# if isAuthenticated}}
+                    Hello {{userName}}!
+                {{else}}
+                    To authenticate go to link sent to you via email.
+                {{/if}}
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="small-24 medium-20 end large-24 columns agenda-button">
-            <a href="http://www.mceconf.com/agenda.html" class="mce-button">BACK TO AGENDA</a>
+            <a href="http://www.mceconf.com/agenda.html" class="mce-button">DONE</a>
         </div>
     </div>
     <div class="row">
         <div class="small-24 medium-offset-2 medium-16 large-offset-6 large-12 columns text-center booking-info">
-        <div class="small-24 medium-offset-2 medium-16 large-offset-4 large-14 columns text-center booking-info">
-            {{# if userName}}
-                Hello {{userName}}!
-            {{/if}}
-            Book one workshop in each session
-        </div>
-        <div class="small-6 medium-3 large-3 columns session-times">
-            SESSION 1<br>
-            10:00 - 14:00<br>
-        </div>
-        <div class="small-6 medium-3 large-3 columns session-times">
-            SESSION 2<br>
-            15:30 - 19:30<br>
+            <div class="small-24 medium-offset-2 medium-16 large-offset-4 large-14 columns text-center booking-info">
+                Book one workshop in each session
+            </div>
+            <div class="small-6 medium-3 large-3 columns session-times">
+                SESSION 1<br>
+                10:00 - 14:00<br>
+            </div>
+            <div class="small-6 medium-3 large-3 columns session-times">
+                SESSION 2<br>
+                15:30 - 19:30<br>
+            </div>
         </div>
     </div>
 </section>
@@ -58,37 +68,42 @@
                         </div>
                     </div>
                 </a>
-                    <div class="small-24 medium-6 large-6 columns">
-                        <div class="small-offset-6 small-18 medium-offset-0 medium-24 large-24 columns workshop-session"  {{bind-attr class='workshop.openSpots:no-register'}}>
+
+                <div class="small-24 medium-6 large-6 columns">
+                    <div class="small-offset-6 small-18 medium-offset-0 medium-24 large-24 columns workshop-session"  {{bind-attr class='workshop.openSpots:no-register'}}>
                             <span class="no-attendance-info">
                                     No booking for this workshop. Monkey Fab will support other workshops with their 3D printers.
                             </span>
-                        </div>
+                    </div>
                     <div class="small-offset-6 small-9 medium-offset-0 medium-12 large-12 columns workshop-session" {{bind-attr class='workshop.openSpots:no-register'}}>
-                        <div class="session-times">
-                            SESSION 1<br>
-                            10:00 - 14:00<br>
-                        </div>
-                        <div class="workshop-register">
-                            <button class="tiny" {{action 'toggleSignUp' 0}} {{bind-attr disabled='workshop.signUpForbidden0'}} {{bind-attr class='workshop.session_0_attending:success'}}>
-                            </button>
+                        {{# unless workshop.registrationDisabled}}
+                            <div class="session-times">
+                                SESSION 1<br>
+                                10:00 - 14:00<br>
+                            </div>
+                            <div class="workshop-register">
+                                <button class="tiny" {{action 'toggleSignUp' 0}} {{bind-attr disabled='workshop.signUpForbidden0'}} {{bind-attr class='workshop.session_0_attending:success'}}>
+                                </button>
                             <span class="workshop-spots">
                                 {{workshop.session_0_free_spots}}
                             </span>
-                        </div>
+                            </div>
+                        {{/unless}}
                     </div>
                     <div class="small-9 medium-12 large-12 columns workshop-session" {{bind-attr class='workshop.openSpots:no-register'}}>
-                        <div class="session-times">
-                            SESSION 2<br>
-                            15:30 - 19:30<br>
-                        </div>
-                        <div class="workshop-register">
-                            <button class="tiny" {{action 'toggleSignUp' 1}} {{bind-attr disabled='workshop.signUpForbidden1'}} {{bind-attr class='workshop.session_1_attending:success'}}>
-                            </button>
+                        {{# unless workshop.registrationDisabled}}
+                            <div class="session-times">
+                                SESSION 2<br>
+                                15:30 - 19:30<br>
+                            </div>
+                            <div class="workshop-register">
+                                <button class="tiny" {{action 'toggleSignUp' 1}} {{bind-attr disabled='workshop.signUpForbidden1'}} {{bind-attr class='workshop.session_1_attending:success'}}>
+                                </button>
                             <span class="workshop-spots">
                                 {{workshop.session_1_free_spots}}
                             </span>
-                        </div>
+                            </div>
+                        {{/unless}}
                     </div>
                 </div>
             </div>
@@ -96,7 +111,7 @@
     {{/each}}
     <div class="row">
         <div class="small-24 medium-20 end large-24 columns agenda-button">
-            <a href="http://www.mceconf.com/agenda.html" class="mce-button">BACK TO AGENDA</a>
+            <a href="http://www.mceconf.com/agenda.html" class="mce-button">DONE</a>
         </div>
     </div>
 </section>
