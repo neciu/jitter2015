@@ -39,19 +39,22 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
     'class': ("workshop.openSpots:no-register")
   },"hashTypes":{'class': "STRING"},"hashContexts":{'class': depth0},"types":[],"contexts":[],"data":data})));
-  data.buffer.push(">\n                            <span class=\"no-attendance-info\">\n                                    No booking for this workshop. Monkey Fab will support other workshops with their 3D printers.\n                            </span>\n                    </div>\n                    <div class=\"small-offset-6 small-9 medium-offset-0 medium-12 large-12 columns workshop-session\" ");
+  data.buffer.push(">\n                        <span class=\"no-attendance-info\">\n                            ");
+  stack1 = helpers._triageMustache.call(depth0, "workshop.no_registration_text", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
+  if (stack1 != null) { data.buffer.push(stack1); }
+  data.buffer.push("\n                        </span>\n                    </div>\n                    <div class=\"small-offset-6 small-9 medium-offset-0 medium-12 large-12 columns workshop-session\" ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
     'class': ("workshop.openSpots:no-register")
   },"hashTypes":{'class': "STRING"},"hashContexts":{'class': depth0},"types":[],"contexts":[],"data":data})));
   data.buffer.push(">\n");
-  stack1 = helpers.unless.call(depth0, "workshop.registrationDisabled", {"name":"unless","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(10, data),"inverse":this.noop,"types":["ID"],"contexts":[depth0],"data":data});
+  stack1 = helpers.unless.call(depth0, "workshop.registrationDisabledOnMorning", {"name":"unless","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(10, data),"inverse":this.noop,"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("                    </div>\n                    <div class=\"small-9 medium-12 large-12 columns workshop-session\" ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
     'class': ("workshop.openSpots:no-register")
   },"hashTypes":{'class': "STRING"},"hashContexts":{'class': depth0},"types":[],"contexts":[],"data":data})));
   data.buffer.push(">\n");
-  stack1 = helpers.unless.call(depth0, "workshop.registrationDisabled", {"name":"unless","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(12, data),"inverse":this.noop,"types":["ID"],"contexts":[depth0],"data":data});
+  stack1 = helpers.unless.call(depth0, "workshop.registrationDisabledOnEvening", {"name":"unless","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(12, data),"inverse":this.noop,"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("                    </div>\n                </div>\n            </div>\n        </div>\n");
   return buffer;
@@ -111,7 +114,7 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
   data.buffer.push("</h6>\n");
   return buffer;
 },"16":function(depth0,helpers,partials,data) {
-  var stack1, escapeExpression=this.escapeExpression, buffer = '';
+  var stack1, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, buffer = '';
   data.buffer.push("            <div class=\"small-24 medium-12 columns\">\n                <img ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {"name":"bind-attr","hash":{
     'src': ("speaker.picture_url")
@@ -122,13 +125,12 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
   data.buffer.push("</h1>\n\n                <h3>");
   stack1 = helpers._triageMustache.call(depth0, "speaker.role", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
-  data.buffer.push("</h3>\n\n                <p>");
-  stack1 = helpers._triageMustache.call(depth0, "speaker.bio", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
-  if (stack1 != null) { data.buffer.push(stack1); }
-  data.buffer.push("</p>\n            </div>\n");
+  data.buffer.push("</h3>\n\n                ");
+  data.buffer.push(escapeExpression(((helpers.markdown || (depth0 && depth0.markdown) || helperMissing).call(depth0, "speaker.bio", {"name":"markdown","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data}))));
+  data.buffer.push("\n            </div>\n");
   return buffer;
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, escapeExpression=this.escapeExpression, buffer = '';
+  var stack1, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, buffer = '';
   data.buffer.push("<section id=\"header-bar\">\n    <div class=\"row\">\n        <div class=\"large-24 columns navbar\">\n            <header>\n                <nav class=\"top-bar\" data-topbar>\n                    <div class=\"logo-event\">\n                        <a href=\"/\"><img src=\"static/img/jitter_logo.png\" alt=\"Jitter 2015 logo\"/></a>\n                    </div>\n                </nav>\n            </header>\n        </div>\n    </div>\n</section>\n\n<section id=\"header\">\n    <div class=\"row\">\n        <div class=\"small-24 columns\">\n            <p class=\"hello\">\n");
   stack1 = helpers['if'].call(depth0, "isAuthenticated", {"name":"if","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(1, data),"inverse":this.program(3, data),"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
@@ -142,10 +144,9 @@ Ember.TEMPLATES["index"] = Ember.Handlebars.template({"1":function(depth0,helper
   data.buffer.push("/>\n        </div>\n        <div class=\"small-24 medium-20 large-20 columns\">\n            <h1>");
   stack1 = helpers._triageMustache.call(depth0, "model.selectedWorkshop.name", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
-  data.buffer.push("</h1>\n\n            <p>");
-  stack1 = helpers._triageMustache.call(depth0, "model.selectedWorkshop.description", {"name":"_triageMustache","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data});
-  if (stack1 != null) { data.buffer.push(stack1); }
-  data.buffer.push("</p>\n");
+  data.buffer.push("</h1>\n\n            ");
+  data.buffer.push(escapeExpression(((helpers.markdown || (depth0 && depth0.markdown) || helperMissing).call(depth0, "model.selectedWorkshop.description", {"name":"markdown","hash":{},"hashTypes":{},"hashContexts":{},"types":["ID"],"contexts":[depth0],"data":data}))));
+  data.buffer.push("\n");
   stack1 = helpers.each.call(depth0, "tag", "in", "model.selectedWorkshop.tags", {"name":"each","hash":{},"hashTypes":{},"hashContexts":{},"fn":this.program(14, data),"inverse":this.noop,"types":["ID","ID","ID"],"contexts":[depth0,depth0,depth0],"data":data});
   if (stack1 != null) { data.buffer.push(stack1); }
   data.buffer.push("        </div>\n    </div>\n\n    <div class=\"row\">\n");
