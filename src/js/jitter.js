@@ -1,5 +1,12 @@
 "use strict";
 
+var showdown = new Showdown.converter();
+
+Ember.Handlebars.registerBoundHelper('markdown', function (content){
+    var fixedContent = content ? content: '';
+    return new Ember.Handlebars.SafeString(showdown.makeHtml(fixedContent));
+});
+
 const HOST = 'https://registration.mobilecentraleurope.com';
 const REFRESH_TIMEOUT = 2000;
 
@@ -155,11 +162,11 @@ Jitter.WorkshopController = Ember.ObjectController.extend({
         return this.get('session_0_free_spots') && this.get('session_1_free_spots') === -1;
     }.property('session_0_free_spots', 'session_1_free_spots'),
 
-    registrationDisabledOnMorning :function() {
+    registrationDisabledOnMorning: function () {
         return !this.get('controllers.index').get('isAuthenticated') || !this.get('morning_session');
     }.property('morning_session'),
 
-    registrationDisabledOnEvening :function() {
+    registrationDisabledOnEvening: function () {
         return !this.get('controllers.index').get('isAuthenticated') || !this.get('evening_session');
     }.property('evening_session'),
 

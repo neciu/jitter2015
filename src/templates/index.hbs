@@ -122,7 +122,7 @@
         <div class="small-24 medium-20 large-20 columns">
             <h1>{{model.selectedWorkshop.name}}</h1>
 
-            <p>{{model.selectedWorkshop.description}}</p>
+            {{markdown model.selectedWorkshop.description}}
             {{# each tag in model.selectedWorkshop.tags}}
                 <h6 class="workshop-modal-tags">{{tag}}</h6>
             {{/each}}
@@ -138,7 +138,7 @@
 
                 <h3>{{speaker.role}}</h3>
 
-                <p>{{speaker.bio}}</p>
+                {{markdown speaker.bio}}
             </div>
         {{/each}}
     </div>
