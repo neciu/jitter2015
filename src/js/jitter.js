@@ -64,6 +64,10 @@ Jitter.Workshop = DS.Model.extend({
     description: DS.attr('string'),
     image_url: DS.attr('string'),
     tags: DS.attr('string'),
+    morning_session: DS.attr('boolean'),
+    evening_session: DS.attr('boolean'),
+    no_registration: DS.attr('boolean'),
+    no_registration_text: DS.attr('string'),
     session_0_attending: DS.attr('boolean', {defaultValue: false}),
     session_0_free_spots: DS.attr('number', {defaultValue: 0}),
     session_1_attending: DS.attr('boolean', {defaultValue: false}),
@@ -87,7 +91,10 @@ Jitter.IndexRoute = Ember.Route.extend({
                         name: workshop.name,
                         description: workshop.description,
                         image_url: workshop.image_url,
-                        tags: workshop.tags
+                        morning_session: workshop.morning_session,
+                        evening_session: workshop.evening_session,
+                        no_registration: workshop.no_registration,
+                        no_registration_text: workshop.no_registration_text
                     });
                     workshop.speakers.map(function (speaker) {
                         w.get('speakers').pushObject(store.createRecord('speaker', speaker));
@@ -148,10 +155,13 @@ Jitter.WorkshopController = Ember.ObjectController.extend({
         return this.get('session_0_free_spots') && this.get('session_1_free_spots') === -1;
     }.property('session_0_free_spots', 'session_1_free_spots'),
 
-    registrationDisabled : function() {
-        console.log(!this.get('controllers.index').get('isAuthenticated'));
-        return !this.get('controllers.index').get('isAuthenticated');
-    }.property(),
+    registrationDisabledOnMorning :function() {
+        return !this.get('controllers.index').get('isAuthenticated') || !this.get('morning_session');
+    }.property('morning_session'),
+
+    registrationDisabledOnEvening :function() {
+        return !this.get('controllers.index').get('isAuthenticated') || !this.get('evening_session');
+    }.property('evening_session'),
 
     actions: {
         showInfo: function () {
