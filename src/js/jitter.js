@@ -98,6 +98,7 @@ Jitter.IndexRoute = Ember.Route.extend({
                         name: workshop.name,
                         description: workshop.description,
                         image_url: workshop.image_url,
+                        tags: workshop.tags,
                         morning_session: workshop.morning_session,
                         evening_session: workshop.evening_session,
                         no_registration: workshop.no_registration,
